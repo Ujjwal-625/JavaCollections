@@ -7,6 +7,7 @@ interface MathOperation {
 
 public class LamdaExpressionDemo {
     public static void main(String[] args) {
+        //this is functional Programming as we are treating function as a variable
         MathOperation addition=(a,b)->a+b;
         MathOperation subtraction=(a,b)->a-b;
         MathOperation multiplication=(a,b)->a*b;
