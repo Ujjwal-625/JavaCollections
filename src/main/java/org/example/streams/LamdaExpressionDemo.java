@@ -1,6 +1,9 @@
 package org.example.streams;
 
+import java.util.function.Predicate;
+
 //functionalInterface
+@FunctionalInterface
 interface MathOperation {
     public int operation(int a,int b);
 }
@@ -17,5 +20,10 @@ public class LamdaExpressionDemo {
         System.out.println(subtraction.operation(10,20));
         System.out.println(multiplication.operation(10,20));
         System.out.println(division.operation(10,20));
+
+        //Predicate is a functional Interface
+        Predicate<Integer> x=y->y%2==0;
+        System.out.println(x.test(10));
+        System.out.println(x.test(11));
     }
 }
