@@ -24,8 +24,10 @@ public class LamdaExpressionDemo {
 
         //Predicate is a functional Interface
         Predicate<Integer> x=y->y%2==0;
+        Predicate<Integer> y=z->z==10;
         System.out.println(x.test(10));
         System.out.println(x.test(11));
+        System.out.println(x.and(y).test(10));
 
         //Function is also a functional Interface
                 //Element,Return
