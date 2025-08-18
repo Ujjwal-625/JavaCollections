@@ -1,5 +1,6 @@
 package org.example.streams;
 
+//functionalInterface
 interface MathOperation {
     public int operation(int a,int b);
 }
