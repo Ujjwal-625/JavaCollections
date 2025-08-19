@@ -1,7 +1,11 @@
 package org.example.streams;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 //functionalInterface
 @FunctionalInterface
@@ -40,5 +44,25 @@ public class LamdaExpressionDemo {
         System.out.println(doubleIt.apply(10));
         System.out.println(doubleIt.andThen(tripleIt).apply(20));
         System.out.println(doubleIt.andThen(tripleIt).andThen(doubleIt).apply(10));
+
+
+        //combined example of all functional Interface
+
+        Predicate<Integer> p=(a)->a%2==0;
+        Function<Integer,Integer> f=(a)->a*a;
+        Consumer<Integer> c=(a)-> System.out.println("Consumer has consumed : "+a);
+        Supplier<Integer> sup=()->100;
+
+        if(p.test(sup.get())){
+            c.accept(f.apply(sup.get()));
+        }
+
+
+        //Method Reffrence
+        List<String> manCity= Arrays.asList("haaland","foden","cherki","marmoush","dias","stones","gvardiol","ake","akanji","doku","rodri");
+        manCity.forEach(a-> System.out.println(a));
+        //instead of this lamda expression we can also use method reffrence
+        manCity.forEach(System.out::println);
+        //here println method will be called for every element of the manCity
     }
 }
