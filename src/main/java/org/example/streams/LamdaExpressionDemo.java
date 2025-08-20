@@ -63,6 +63,6 @@ public class LamdaExpressionDemo {
         manCity.forEach(a-> System.out.println(a));
         //instead of this lamda expression we can also use method reffrence
         manCity.forEach(System.out::println);
-        //here println method will be called for every element of the manCity
+        //here println method will be called for every element of the manCity`
     }
 }
