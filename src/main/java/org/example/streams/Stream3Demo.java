@@ -1,6 +1,7 @@
 package org.example.streams;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -35,6 +36,20 @@ public class Stream3Demo {
 
         List<Integer> ls=Arrays.asList(1,2,34,5,6,7,8);
         System.out.println(ls.stream().reduce(Integer::sum).get());
+
+
+        //min,max,toArray
+        //Integer [] arr=(Integer[]) ls.stream().limit(3).toArray();
+
+        System.out.println(ls.stream().min(Comparator.naturalOrder()).get());
+        System.out.println(ls.stream().max(Comparator.naturalOrder()).get());
+
+        //ForEachOrdered
+        //works in case of parellel Streams to follow a given order
+        List<Integer> list=Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        list.parallelStream().forEach(a-> System.out.print(a+" "));
+        System.out.println();
+        list.parallelStream().forEachOrdered(a-> System.out.print(a+" "));
 
 
     }
