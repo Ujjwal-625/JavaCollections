@@ -1,6 +1,7 @@
 package org.example.streams;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -37,6 +38,28 @@ public class Stream2Demo {
         //peek
         //work same as forEach but it is a intermediate operation
         System.out.println(Stream.iterate(10L,a->a*10).limit(10).peek(System.out::println).count());
+
+        //flatMap
+        List<List<String>> manCitySquad=Arrays.asList(
+                Arrays.asList("phil","foden"),
+                Arrays.asList("erling","haaland"),
+                Arrays.asList("jack","grealish"),
+                Arrays.asList("kevin","debruyne")
+        );
+
+        List<String> newManCitySquad=manCitySquad.stream().flatMap(Collection::stream).map(String::toUpperCase).toList();
+        System.out.println(newManCitySquad);
+
+        List<String> sentance=Arrays.asList(
+                "hello world",
+                "java streams are powerfull",
+                "flatmap is very usefull"
+        );
+
+        List<String> ls=sentance.stream().flatMap(a->Arrays.stream(a.split(" "))).map(String::toUpperCase).toList();
+        System.out.println(ls);
+
+
 
     }
 }
