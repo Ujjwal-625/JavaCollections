@@ -34,6 +34,9 @@ public class Stream2Demo {
         System.out.println(manCity.stream().filter(a->a.startsWith("a")).distinct().collect(Collectors.toList()));
 
 
+        //peek
+        //work same as forEach but it is a intermediate operation
+        System.out.println(Stream.iterate(10L,a->a*10).limit(10).peek(System.out::println).count());
 
     }
 }
